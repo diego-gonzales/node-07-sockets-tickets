@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket Client</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Socket Client</h1>
+    </header>
+
+    <main>
+      <div class="section-info">
+        <h3>Server status:</h3>
+        <span id="statusConnected">Connected</span>
+        <span id="statusDisconnected">Disconnected</span>
+      </div>
+
+      <div>
+        <form class="form" autocomplete="off">
+          <label for="message">
+            Message
+            <input type="text" class="messageInput" name="message" />
+          </label>
+          <button class="sendButton" type="button">Send</button>
+        </form>
+      </div>
+    </main>
+
+    <script src="./socket.io/socket.io.js"></script>
+    <script src="./js/socket-client.js"></script>
+  </body>
+</html>
