@@ -1,13 +1,12 @@
+import { TicketControl } from '../models/ticket-control.js';
+
+const ticketControl = new TicketControl();
+
 export const socketController = (socket) => {
-  console.log('Client connected', socket.id);
+  socket.emit('last-ticket-number', ticketControl.last);
 
-  socket.on('disconnect', () => {
-    console.log('Client disconnected', socket.id);
-  });
-
-  socket.on('send-message-client', (payload, callback) => {
-    // console.log(payload);
-    callback({ message: 'Message received' });
-    socket.broadcast.emit('send-message-server', payload);
+  socket.on('generate-new-ticket', (_, callback) => {
+    const newTicket = ticketControl.generateNewTicket();
+    callback(newTicket);
   });
 };
