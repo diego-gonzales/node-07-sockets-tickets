@@ -9,4 +9,19 @@ export const socketController = (socket) => {
     const newTicket = ticketControl.generateNewTicket();
     callback(newTicket);
   });
+
+  socket.on('dispatch-next-ticket', (payload, callback) => {
+    const { cashier } = payload;
+    if (!cashier) {
+      callback({
+        ok: false,
+        message: 'The cashier is required',
+      });
+    }
+
+    const ticket = ticketControl.dispatchTicket(cashier);
+    !ticket
+      ? callback({ ok: false, message: 'There is no more tickets' })
+      : callback({ ok: true, ticket });
+  });
 };

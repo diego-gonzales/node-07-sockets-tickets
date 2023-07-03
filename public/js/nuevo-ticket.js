@@ -17,7 +17,7 @@ socket.on('last-ticket-number', (lastTicketNumber) => {
 });
 
 btnGenerateNewTicket.addEventListener('click', () => {
-  socket.emit('generate-new-ticket', null, (newTicket) => {
-    lblNewTicket.innerText = newTicket;
+  socket.emit('generate-new-ticket', null, (resp) => {
+    lblNewTicket.innerText = resp;
   });
 });

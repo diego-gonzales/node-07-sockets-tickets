@@ -56,7 +56,7 @@ export class TicketControl {
   }
 
   dispatchTicket(cashier) {
-    if (this.tickets.length === 0) return 'There are no tickets';
+    if (this.tickets.length === 0) return null;
     const ticket = this.tickets.shift();
     ticket.cashier = cashier;
     this.lastFourTickets.unshift(ticket);
