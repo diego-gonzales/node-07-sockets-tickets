@@ -1,1 +1,1 @@
-{"today":3,"tickets":[{"number":6,"cashier":null},{"number":7,"cashier":null},{"number":8,"cashier":null},{"number":9,"cashier":null},{"number":10,"cashier":null}],"last":10,"lastFourTickets":[{"number":5,"cashier":"sasda"},{"number":4,"cashier":"sasda"},{"number":3,"cashier":"sasda"},{"number":2,"cashier":"sasda"}]}
+{"today":4,"tickets":[],"last":12,"lastFourTickets":[{"number":12,"cashier":"asdas"},{"number":11,"cashier":"asdas"},{"number":10,"cashier":"asdas"},{"number":9,"cashier":"asdas"}]}

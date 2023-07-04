@@ -44,7 +44,6 @@ export class TicketControl {
   saveDataInDb() {
     // const { pathname: dataPath } = new URL('../db/data.json', import.meta.url);
     const dataPath = path.join(__dirname, './src/db/data.json');
-    console.log(dataPath);
     fs.writeFileSync(dataPath, JSON.stringify(this.dataToJson));
   }
 

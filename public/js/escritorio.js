@@ -1,6 +1,9 @@
 const h1Label = document.querySelector('h1');
 const btnAttendTicket = document.querySelector('button');
 const searchParams = new URLSearchParams(window.location.search);
+const divAlert = document.querySelector('.alert');
+const lblTicket = document.querySelector('small');
+divAlert.style.display = 'none';
 
 if (!searchParams.has('cashier')) {
   window.location = 'index.html';
@@ -20,8 +23,15 @@ socket.on('disconnect', () => {
   btnAttendTicket.disabled = true;
 });
 
-document.addEventListener('click', () => {
+btnAttendTicket.addEventListener('click', () => {
   socket.emit('dispatch-next-ticket', { cashier: currentCashier }, (resp) => {
-    console.log(resp);
+    const { ok, message, ticket } = resp;
+    if (!ok) {
+      divAlert.style.display = '';
+      divAlert.innerText = message;
+      return;
+    }
+
+    lblTicket.innerText = `Ticket ${ticket.number}`;
   });
 });
