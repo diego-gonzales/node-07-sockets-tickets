@@ -29,6 +29,7 @@ btnAttendTicket.addEventListener('click', () => {
     if (!ok) {
       divAlert.style.display = '';
       divAlert.innerText = message;
+      lblTicket.textContent = 'Nobody';
       return;
     }
 
