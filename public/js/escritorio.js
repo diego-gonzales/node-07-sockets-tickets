@@ -3,6 +3,7 @@ const btnAttendTicket = document.querySelector('button');
 const searchParams = new URLSearchParams(window.location.search);
 const divAlert = document.querySelector('.alert');
 const lblTicket = document.querySelector('small');
+const lblPendientes = document.querySelector('#lblPendientes');
 divAlert.style.display = 'none';
 
 if (!searchParams.has('cashier')) {
@@ -21,6 +22,10 @@ socket.on('connect', () => {
 
 socket.on('disconnect', () => {
   btnAttendTicket.disabled = true;
+});
+
+socket.on('in-queue', (payload) => {
+  lblPendientes.innerText = payload;
 });
 
 btnAttendTicket.addEventListener('click', () => {
