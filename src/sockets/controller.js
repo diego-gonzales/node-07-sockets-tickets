@@ -10,7 +10,6 @@ export const socketController = (socket) => {
   socket.on('generate-new-ticket', (_, callback) => {
     const newTicket = ticketControl.generateNewTicket();
     callback(newTicket);
-    // socket.emit('in-queue', ticketControl.tickets.length);
     socket.broadcast.emit('in-queue', ticketControl.tickets.length);
   });
 
